@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { createStore } from "redux";
-import transactionReducer from "./reducers/employeeReducer";
+import emplyoeeReducer from "./reducers/employeeReducer";
 import { Provider } from "react-redux";
 
 if (localStorage.getItem('employee') == null)
@@ -12,7 +12,7 @@ let initialState = {
     currentIndex: -1,
     list: JSON.parse(localStorage.getItem('employee'))
 }
-const store = createStore(transactionReducer, initialState)
+const store = createStore(emplyoeeReducer, initialState)
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 // If you want to start measuring performance in your app, pass a function

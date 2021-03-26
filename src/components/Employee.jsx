@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from "../actions/employeeActions"
 import { bindActionCreators } from "redux";
 
-class TransactionForm extends Component {
+class Employee extends Component {
 
     state = {
         ...this.returnStateObject()
@@ -43,10 +43,13 @@ class TransactionForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        if (this.props.currentIndex == -1)
-            this.props.insertTransaction(this.state)
+        if (this.props.currentIndex == -1){
+            
+                this.props.insertEmployee(this.state)
+            
+        }      
         else
-            this.props.updateTransaction(this.state)
+            this.props.updateEmployee(this.state)
 
         
             
@@ -74,9 +77,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return bindActionCreators({
-        insertTransaction: actions.insert,
-        updateTransaction: actions.update
+        insertEmployee: actions.insert,
+        updateEmployee: actions.update
     }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionForm)
+export default connect(mapStateToProps, mapDispatchToProps)(Employee)

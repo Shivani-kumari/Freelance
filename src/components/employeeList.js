@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
-import EmployeeForm from './employee'
+import EmployeeForm from './Employee'
 import { connect } from "react-redux";
 import * as actions from "../actions/employeeActions"
 import { bindActionCreators } from "redux";
 
-class TransactionList extends Component {
+class EmployeeList extends Component {
 
 
     handleEdit = (index) => {
-        this.props.updateTransactionIndex(index)
+        this.props.updateEmployeeIndex(index)
     }
 
     handleDelete = (index) => {
-        this.props.deleteTransaction(index)
+        this.props.deleteEmployee(index)
     }
 
     render() {
@@ -47,9 +47,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        updateTransactionIndex: actions.updateIndex,
-        deleteTransaction: actions.Delete
+        updateEmployeeIndex: actions.updateIndex,
+        deleteEmployee: actions.Delete
     }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionList)
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeeList)
